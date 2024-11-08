@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan django level one - three</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Halo, ini merupakan hasil praktik dari latihan django level one - three !</h1>
+
+    <p>Ini merupakan sebuah gambar yang akan ditampilkan:</p>
+    <img src="{% static 'images/mari.png' %}" alt="contoh gambar" width="150">
+
+    <h2>This is your access record:</h2>
+    <div class="djangotwo">
+        {% if access_records %}
+            <table>
+                <thead>
+                    <th>Site Name</th>
+                    <th>Date Accessed</th>
+                </thead>
+                {% for acc in access_records %}
+                    <tr>
+                        <td>{{acc.name}}</td>
+                        <td>{{acc.date}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {%  else %}
+            <p>NO ACCESS RECORD FOUND</p>
+        {% endif %}
+        
+    </div>
+</body>
+</html>
